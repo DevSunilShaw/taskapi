@@ -48,64 +48,107 @@ A RESTful API-based Task Management built using **Laravel 13** and **PHP 8.4**, 
 
 ---
 
-## 🔧 Installation & API Testing
+## 🔧 Installation
 
-Follow these steps to set up, seed, and test the **Task Management API**:
+## 1. Clone the Repository
 
----
-
-### 1. Clone the repository
 ```bash
 git clone git@github.com:DevSunilShaw/taskapi.git
 cd taskapi
-2. Install dependencies
+```
+
+## 2. Install Dependencies
+
+```bash
 composer install
-3. Copy .env file and update DB credentials
+```
+
+## 3. Configure Environment
+
+Copy the example `.env` file and generate the application key:
+
+```bash
 cp .env.example .env
 php artisan key:generate
+```
 
-Update the .env file with your database credentials.
+Update the `.env` file with your **database credentials**.
 
-4. Run migrations and seed database
+---
+
+## 4. Run Migrations and Seed Database
+
+```bash
 php artisan migrate:fresh --seed
+```
 
 This will:
 
-Create users and tasks tables
-Seed a default user:
-Email: dev.sunil.shaw@gmail.com
-Password: 8700166471
-Seed multiple tasks for all users
+- Create `users` and `tasks` tables  
+- Seed a default user:
+  - **Email:** dev.sunil.shaw@gmail.com  
+  - **Password:** 8700166471  
+- Seed multiple tasks for all users
 
-Note: If any migration fails, check your DB connection and credentials.
+> **Note:** If any migration fails, check your DB connection and credentials.
 
-5. Run the Laravel server
+---
+
+## 5. Start the Laravel Server
+
+```bash
 php artisan serve
+```
 
-The server will start at http://127.0.0.1:8000.
+The server will start at: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-6. Import Postman Collection
-Open Postman
-Go to File > Import > Upload Files
-Import task-api.postman_collection.json
-The collection contains all endpoints:
-Register
-Login
-Logout
-Task CRUD (Create, Read, Update, Delete)
-7. Set Authorization Token
-Login using seeded credentials:
-Email: dev.sunil.shaw@gmail.com
-Password: 8700166471
-Copy the token from the response
-Set it as Postman global variable {{token}}
-All task APIs use this token automatically for authentication
-8. Test APIs
-Create a new task
-Get all tasks
-Get single task
-Update a task
-Delete a task
-Logout
+---
 
-All logs are stored daily in storage/logs/laravel-YYYY-MM-DD.log for auditing and debugging.
+## 6. Import Postman Collection
+
+1. Open Postman  
+2. Go to **File > Import > Upload Files**  
+3. Import `task-api.postman_collection.json`
+
+The collection includes all endpoints:
+
+- Register  
+- Login  
+- Logout  
+- Task CRUD (Create, Read, Update, Delete)
+
+---
+
+## 7. Set Authorization Token
+
+1. Login using the seeded credentials:  
+   - **Email:** dev.sunil.shaw@gmail.com  
+   - **Password:** 8700166471  
+2. Copy the token from the response  
+3. Set it as a Postman global variable: `{{token}}`
+
+> All task APIs will automatically use this token for authentication.
+
+---
+
+## 8. Test APIs
+
+- Create a new task  
+- Get all tasks  
+- Get a single task  
+- Update a task  
+- Delete a task  
+- Logout
+
+---
+
+## 9. Logs
+
+All logs are stored daily in:
+
+```text
+storage/logs/laravel-YYYY-MM-DD.log
+```
+
+Use these for auditing and debugging.
+
