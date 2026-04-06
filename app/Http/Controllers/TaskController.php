@@ -99,19 +99,7 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    // public function store(Request $request)
-    // {
-    //     $validated = $request->validate([
-    //         'title' => 'required|string',
-    //         'description' => 'nullable|string',
-    //         'status' => 'in:pending,in-progress,completed',
-    //         'due_date' => 'nullable|date'
-    //     ]);
-
-    //     $task = $request->user()->tasks()->create($validated);
-
-    //     return response()->json($task, 201);
-    // }
+   
     public function store(Request $request)
     {
         try {
@@ -154,11 +142,7 @@ class TaskController extends Controller
     /**
      * Display the specified resource.
      */
-    // public function show(Task $task)
-    // {
-    //     $this->authorizeTask($task);
-    //     return response()->json($task);
-    // }
+   
 
     public function show(Task $task)
     {
@@ -189,14 +173,7 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    // public function update(Request $request, Task $task)
-    // {
-    //     $this->authorizeTask($task);
-
-    //     $task->update($request->all());
-
-    //     return response()->json($task);
-    // }
+  
     public function update(Request $request, Task $task)
     {
         try {
@@ -241,14 +218,7 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    // public function destroy(Task $task)
-    // {
-    //     $this->authorizeTask($task);
-
-    //     $task->delete();
-
-    //     return response()->json(['message' => 'Deleted']);
-    // }
+   
     public function destroy(Task $task)
     {
         try {

@@ -4,7 +4,7 @@ A RESTful API-based Task Management built using **Laravel 13** and **PHP 8.4**, 
 
 ---
 
-## 🛠 Technical Stack
+## Technical Stack
 
 - **Backend:** PHP 8.4.12, Laravel 13.3.0  
 - **Database:** MySQL  
@@ -16,7 +16,7 @@ A RESTful API-based Task Management built using **Laravel 13** and **PHP 8.4**, 
 
 ---
 
-## 📌 Features
+## Features
 
 ### 1. User Authentication
 - **Register** a new user
@@ -48,7 +48,7 @@ A RESTful API-based Task Management built using **Laravel 13** and **PHP 8.4**, 
 
 ---
 
-## 🔧 Installation
+## Installation
 
 ## 1. Clone the Repository
 

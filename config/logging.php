@@ -80,7 +80,7 @@ return [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),
             'level' => 'debug',
-            'days' => 14, // keep 14 days of logs
+            'days' => 14,
         ],
 
         'slack' => [

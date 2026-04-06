@@ -22,7 +22,7 @@ class AuthController extends Controller
                 'payload' => $request->all()
             ]);
 
-            // 🔹 Step 1: Validation
+            // Validation
             $validated = $request->validate([
                 'name' => 'required|string|max:255',
                 'email' => 'required|email|unique:users',
@@ -33,14 +33,14 @@ class AuthController extends Controller
                 'email' => $validated['email']
             ]);
 
-            // 🔹 Step 2: Create User
+            // Create User
             $user = User::create($validated);
 
             Log::info('User created successfully', [
                 'user_id' => $user->id
             ]);
 
-            // 🔹 Step 3: Create Token
+            // Create Token
             $token = $user->createToken('api-token')->plainTextToken;
 
             Log::info('Token generated successfully', [

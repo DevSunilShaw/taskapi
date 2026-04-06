@@ -19,11 +19,11 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions): void {
 
-        /*
-        |--------------------------------------------------------------------------
-        | Authentication Exception (401)
-        |--------------------------------------------------------------------------
-        */
+        
+      
+        // Authentication Exception (401)
+        
+        
         $exceptions->render(function (AuthenticationException $e, $request) {
             if ($request->expectsJson()) {
 
@@ -39,11 +39,9 @@ return Application::configure(basePath: dirname(__DIR__))
             }
         });
 
-        /*
-        |--------------------------------------------------------------------------
-        | Validation Exception (422)
-        |--------------------------------------------------------------------------
-        */
+     
+        // Validation Exception (422)
+        
         $exceptions->render(function (ValidationException $e, $request) {
             if ($request->expectsJson()) {
 
@@ -60,11 +58,8 @@ return Application::configure(basePath: dirname(__DIR__))
             }
         });
 
-        /*
-        |--------------------------------------------------------------------------
-        | HTTP Exceptions (404, 403 etc.)
-        |--------------------------------------------------------------------------
-        */
+        // HTTP Exceptions (404, 403 etc.)
+        
         $exceptions->render(function (HttpExceptionInterface $e, $request) {
             if ($request->expectsJson()) {
 
@@ -80,11 +75,8 @@ return Application::configure(basePath: dirname(__DIR__))
             }
         });
 
-        /*
-        |--------------------------------------------------------------------------
-        | Global Exception (500)
-        |--------------------------------------------------------------------------
-        */
+       // Global Exception (500)
+       
         $exceptions->render(function (\Throwable $e, $request) {
             if ($request->expectsJson()) {
 
