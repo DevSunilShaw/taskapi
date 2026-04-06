@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 06, 2026 at 09:13 AM
+-- Generation Time: Apr 06, 2026 at 11:22 AM
 -- Server version: 8.0.43-0ubuntu0.22.04.1
 -- PHP Version: 8.4.12
 
@@ -188,11 +188,11 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `user_id`, `title`, `description`, `status`, `due_date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'Task ZTwc1', 'This is a seeded task description.', 'completed', '2026-04-16', '2026-04-06 03:43:03', '2026-04-06 03:43:03', NULL),
-(2, 1, 'Task pT05H', 'This is a seeded task description.', 'in-progress', '2026-05-02', '2026-04-06 03:43:03', '2026-04-06 03:43:03', NULL),
-(3, 1, 'Task KEN0v', 'This is a seeded task description.', 'in-progress', '2026-04-26', '2026-04-06 03:43:03', '2026-04-06 03:43:03', NULL),
-(4, 1, 'Task gtNjJ', 'This is a seeded task description.', 'in-progress', '2026-04-21', '2026-04-06 03:43:03', '2026-04-06 03:43:03', NULL),
-(5, 1, 'Task VLA1k', 'This is a seeded task description.', 'pending', '2026-05-05', '2026-04-06 03:43:03', '2026-04-06 03:43:03', NULL);
+(1, 1, 'Task FQhMJ', 'This is a seeded task description.', 'pending', '2026-05-01', '2026-04-06 05:51:49', '2026-04-06 05:51:49', NULL),
+(2, 1, 'Task bZzu9', 'This is a seeded task description.', 'in-progress', '2026-04-16', '2026-04-06 05:51:49', '2026-04-06 05:51:49', NULL),
+(3, 1, 'Task udMRP', 'This is a seeded task description.', 'in-progress', '2026-04-07', '2026-04-06 05:51:49', '2026-04-06 05:51:49', NULL),
+(4, 1, 'Task GB8x4', 'This is a seeded task description.', 'pending', '2026-04-17', '2026-04-06 05:51:49', '2026-04-06 05:51:49', NULL),
+(5, 1, 'Task U5IQw', 'This is a seeded task description.', 'completed', '2026-04-23', '2026-04-06 05:51:49', '2026-04-06 05:51:49', NULL);
 
 -- --------------------------------------------------------
 
@@ -216,7 +216,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Sunil Shaw', 'dev.sunil.shaw@gmail.com', '2026-04-06 03:43:03', '$2y$12$JRuEOsIy2RHydvnDJqaIguzYH3eO3rF.QDwq5FcsGO2V0Wv.AV3gi', 'fgiiLUFvlm', '2026-04-06 03:43:03', '2026-04-06 03:43:03');
+(1, 'Sunil Shaw', 'dev.sunil.shaw@gmail.com', '2026-04-06 05:51:49', '$2y$12$vCCUwHPXnHEkOeF0frT3leG8gmhDopHmpUJig/2rkYID1QvczoFlG', 'LY8MxM6nXv', '2026-04-06 05:51:49', '2026-04-06 05:51:49');
 
 --
 -- Indexes for dumped tables
