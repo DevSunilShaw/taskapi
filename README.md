@@ -152,3 +152,16 @@ storage/logs/laravel-YYYY-MM-DD.log
 
 Use these for auditing and debugging.
 
+---
+
+### 10. Unit & Feature Testing
+
+This project includes **basic unit and feature tests** to verify core API functionality.
+
+#### a) Run All Tests
+
+```bash
+php artisan test
+```
+
+- Runs all tests located in `tests/Unit` and `tests/Feature`.  
