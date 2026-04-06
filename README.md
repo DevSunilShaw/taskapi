@@ -325,3 +325,18 @@ public function test_user_can_register()
 - Tests run using **in-memory SQLite** or your MySQL database. Update `.env.testing` if needed.
 
 
+### Preview
+
+## Screenshots
+
+| Screenshot 1 | Screenshot 2 | Screenshot 3 | Screenshot 4 |
+|--------------|--------------|--------------|--------------|
+| ![16-40-35](Screenshot%20from%202026-04-06%2016-40-35.png) | ![16-41-01](Screenshot%20from%202026-04-06%2016-41-01.png) | ![16-41-11](Screenshot%20from%202026-04-06%2016-41-11.png) | ![16-42-03](Screenshot%20from%202026-04-06%2016-42-03.png) |
+
+| Screenshot 5 | Screenshot 6 | Screenshot 7 | Screenshot 8 |
+|--------------|--------------|--------------|--------------|
+| ![16-42-57](Screenshot%20from%202026-04-06%2016-42-57.png) | ![16-43-44](Screenshot%20from%202026-04-06%2016-43-44.png) | ![16-44-33](Screenshot%20from%202026-04-06%2016-44-33.png) | ![16-45-06](Screenshot%20from%202026-04-06%2016-45-06.png) |
+
+| Screenshot 9 | Screenshot 10 |
+|--------------|---------------|
+| ![16-45-09](Screenshot%20from%202026-04-06%2016-45-09.png) | ![16-45-18](Screenshot%20from%202026-04-06%2016-45-18.png) |
