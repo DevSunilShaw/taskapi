@@ -165,3 +165,143 @@ php artisan test
 ```
 
 - Runs all tests located in `tests/Unit` and `tests/Feature`.  
+
+
+- Runs all tests located in `tests/Unit` and `tests/Feature`.  
+- Example output:
+
+```text
+PASS  Tests\Unit\ExampleTest
+  ✓ that true is true
+
+   PASS  Tests\Feature\ExampleTest
+  ✓ the application returns a successful response                        0.06s  
+
+   PASS  Tests\Feature\TaskApiTest
+  ✓ user can register                                                    0.42s  
+  ✓ user can login with valid credentials                                0.01s  
+  ✓ authenticated user can create task                                   0.01s  
+  ✓ authenticated user can fetch tasks                                   0.01s  
+  ✓ authenticated user can update task                                   0.01s  
+  ✓ authenticated user can delete task                                   0.01s  
+  ✓ unauthenticated user cannot access tasks                             0.01s  
+
+  Tests:    9 passed (23 assertions)
+  Duration: 0.59s
+
+```
+
+#### b) Example Test Files
+
+1. **`tests/Feature/AuthTest.php`** – tests user registration and login  
+2. **`tests/Feature/TaskApiTest.php`** – tests task CRUD operations
+
+#### c) Sample Feature Test (Task Creation)
+
+```php
+public function test_user_can_register()
+    {
+        $response = $this->postJson('/api/register', [
+            'name' => 'New User',
+            'email' => 'newuser@example.com',
+            'password' => 'secret123'
+        ]);
+
+        $response->assertStatus(201)
+                 ->assertJsonStructure(['success', 'token']);
+        
+        $this->assertDatabaseHas('users', ['email' => 'newuser@example.com']);
+    }
+
+    /** @test */
+    public function test_user_can_login_with_valid_credentials()
+    {
+        $response = $this->postJson('/api/login', [
+            'email' => $this->user->email,
+            'password' => 'password123'
+        ]);
+
+        $response->assertStatus(200)
+                 ->assertJsonStructure(['success', 'token']);
+    }
+
+    /** @test */
+    public function test_authenticated_user_can_create_task()
+    {
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer ' . $this->token
+        ])->postJson('/api/tasks', [
+            'title' => 'Test Task',
+            'description' => 'Task description',
+            'status' => 'pending',
+            'due_date' => now()->addDays(5)->toDateString()
+        ]);
+
+        $response->assertStatus(201)
+                 ->assertJsonFragment(['title' => 'Test Task']);
+        
+        $this->assertDatabaseHas('tasks', ['title' => 'Test Task', 'user_id' => $this->user->id]);
+    }
+
+    /** @test */
+    public function test_authenticated_user_can_fetch_tasks()
+    {
+        Task::factory()->count(3)->create(['user_id' => $this->user->id]);
+
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer ' . $this->token
+        ])->getJson('/api/tasks');
+
+        $response->assertStatus(200)
+                 ->assertJsonStructure(['success', 'message', 'data']);
+    }
+
+    /** @test */
+    public function test_authenticated_user_can_update_task()
+    {
+        $task = Task::factory()->create(['user_id' => $this->user->id, 'status' => 'pending']);
+
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer ' . $this->token
+        ])->putJson("/api/tasks/{$task->id}", [
+            'status' => 'completed'
+        ]);
+
+        $response->assertStatus(200)
+                 ->assertJsonFragment(['status' => 'completed']);
+
+        $this->assertDatabaseHas('tasks', ['id' => $task->id, 'status' => 'completed']);
+    }
+
+    /** @test */
+    public function test_authenticated_user_can_delete_task()
+    {
+        $task = Task::factory()->create(['user_id' => $this->user->id]);
+
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer ' . $this->token
+        ])->deleteJson("/api/tasks/{$task->id}");
+
+        $response->assertStatus(200)
+                 ->assertJson(['message' => 'Task deleted successfully']);
+
+        $this->assertSoftDeleted('tasks', ['id' => $task->id]);
+    }
+
+    /** @test */
+    public function test_unauthenticated_user_cannot_access_tasks()
+    {
+        $response = $this->getJson('/api/tasks');
+
+        $response->assertStatus(401);
+    }
+```
+
+> This test ensures that an **authenticated user can create a task** and that the task is correctly stored in the database.
+
+#### d) Notes
+
+- You can create more tests for **update, delete, view single task, and task filtering**.  
+- Tests run using **in-memory SQLite** or your MySQL database. Update `.env.testing` if needed.
+
+
