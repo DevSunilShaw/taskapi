@@ -8,6 +8,7 @@ A RESTful API-based Task Management built using **Laravel 13** and **PHP 8.4**, 
 
 - **Backend:** PHP 8.4.12, Laravel 13.3.0  
 - **Database:** MySQL  
+- **Operating System / Environment:** Ubuntu or Debian
 - **Authentication:** Laravel Sanctum (Token-based)  
 - **Architecture:** MVC  
 - **ORM:** Eloquent  
