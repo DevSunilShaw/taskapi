@@ -7,6 +7,24 @@
   },
   "item": [
     {
+      "name": "Migration And Seeder UserLogin",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"dev.sunil.shaw@gmail.com\",\n  \"password\": \"8700166471\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/login",
+          "host": ["{{base_url}}"],
+          "path": ["api", "login"]
+        }
+      }
+    },
+    {
       "name": "Register",
       "request": {
         "method": "POST",
@@ -25,7 +43,7 @@
       }
     },
     {
-      "name": "Login",
+      "name": "API Register Login",
       "request": {
         "method": "POST",
         "header": [
@@ -54,6 +72,57 @@
           "raw": "{{base_url}}/api/tasks",
           "host": ["{{base_url}}"],
           "path": ["api", "tasks"]
+        }
+      }
+    },
+    {
+      "name": "Get Tasks Filter by Status",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/tasks?status=pending",
+          "host": ["{{base_url}}"],
+          "path": ["api", "tasks"],
+          "query": [{ "key": "status", "value": "pending" }]
+        }
+      }
+    },
+    {
+      "name": "Get Tasks Filter by Due Date",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/tasks?due_date=2026-04-10",
+          "host": ["{{base_url}}"],
+          "path": ["api", "tasks"],
+          "query": [{ "key": "due_date", "value": "2026-04-10" }]
+        }
+      }
+    },
+    {
+      "name": "Get Tasks Filter by Status and Due Date",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/tasks?status=pending&due_date=2026-04-10",
+          "host": ["{{base_url}}"],
+          "path": ["api", "tasks"],
+          "query": [
+            { "key": "status", "value": "pending" },
+            { "key": "due_date", "value": "2026-04-10" }
+          ]
         }
       }
     },
