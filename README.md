@@ -78,17 +78,36 @@ Update the `.env` file with your **database credentials**.
 
 ## 4. Run Migrations and Seed Database
 
+### a) Run Migrations Only
+
+```bash
+php artisan migrate
+```
+
+- This will create all database tables according to the migration files.  
+- **No data will be seeded.**
+
+### b) Run Migrations Fresh with Seeding
+
 ```bash
 php artisan migrate:fresh --seed
 ```
 
-This will:
+- Drops all existing tables and recreates them.  
+- Seeds initial data including a default user and sample tasks.
 
-- Create `users` and `tasks` tables  
-- Seed a default user:
-  - **Email:** dev.sunil.shaw@gmail.com  
-  - **Password:** 8700166471  
-- Seed multiple tasks for all users
+**Seeded Default User Credentials (for testing):**
+- **Email:** dev.sunil.shaw@gmail.com  
+- **Password:** 8700166471
+
+> Use these credentials for the login API in Postman or to set the global `{{token}}` variable.
+
+**Postman Registered User (example):**
+- **Email:** dev.sunil.shaw02@gmail.com  
+- **Password:** 8700166471
+
+> You can use this user to test registration and login APIs separately from the seeded user.
+
 
 > **Note:** If any migration fails, check your DB connection and credentials.
 
